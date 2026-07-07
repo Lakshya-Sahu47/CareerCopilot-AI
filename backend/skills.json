@@ -1,0 +1,772 @@
+{
+    "Programming Languages": [
+        {
+            "name": "Python",
+            "aliases": ["py"],
+            "keywords": ["python", "python3"]
+        },
+        {
+            "name": "Java",
+            "aliases": [],
+            "keywords": ["java"]
+        },
+        {
+            "name": "C++",
+            "aliases": ["cpp"],
+            "keywords": ["c++", "cpp"]
+        },
+        {
+            "name": "C",
+            "aliases": [],
+            "keywords": ["c programming", "c language"]
+        },
+        {
+            "name": "C#",
+            "aliases": ["csharp"],
+            "keywords": ["c#", "csharp", "dotnet"]
+        },
+        {
+            "name": "JavaScript",
+            "aliases": ["JS"],
+            "keywords": ["javascript", "js", "ecmascript"]
+        },
+        {
+            "name": "TypeScript",
+            "aliases": ["TS"],
+            "keywords": ["typescript", "ts"]
+        },
+        {
+            "name": "Go",
+            "aliases": ["Golang"],
+            "keywords": ["golang", "go language"]
+        },
+        {
+            "name": "Rust",
+            "aliases": [],
+            "keywords": ["rust", "rust lang"]
+        },
+        {
+            "name": "Kotlin",
+            "aliases": [],
+            "keywords": ["kotlin"]
+        },
+        {
+            "name": "Swift",
+            "aliases": [],
+            "keywords": ["swift", "swiftui"]
+        },
+        {
+            "name": "PHP",
+            "aliases": [],
+            "keywords": ["php"]
+        },
+        {
+            "name": "Ruby",
+            "aliases": [],
+            "keywords": ["ruby"]
+        },
+        {
+            "name": "R",
+            "aliases": [],
+            "keywords": ["r language", "r programming"]
+        },
+        {
+            "name": "SQL",
+            "aliases": [],
+            "keywords": ["sql", "structured query language"]
+        },
+        {
+            "name": "Scala",
+            "aliases": [],
+            "keywords": ["scala"]
+        },
+        {
+            "name": "Dart",
+            "aliases": [],
+            "keywords": ["dart", "dart lang"]
+        }
+    ],
+    "Frontend": [
+        {
+            "name": "React",
+            "aliases": ["ReactJS"],
+            "keywords": ["react", "reactjs", "react.js"]
+        },
+        {
+            "name": "Next.js",
+            "aliases": ["NextJS"],
+            "keywords": ["next.js", "nextjs"]
+        },
+        {
+            "name": "Vue.js",
+            "aliases": ["VueJS"],
+            "keywords": ["vue.js", "vuejs", "vue"]
+        },
+        {
+            "name": "Angular",
+            "aliases": [],
+            "keywords": ["angular", "angularjs"]
+        },
+        {
+            "name": "Svelte",
+            "aliases": [],
+            "keywords": ["svelte", "sveltekit"]
+        },
+        {
+            "name": "HTML5",
+            "aliases": ["HTML"],
+            "keywords": ["html", "html5"]
+        },
+        {
+            "name": "CSS3",
+            "aliases": ["CSS"],
+            "keywords": ["css", "css3"]
+        },
+        {
+            "name": "Tailwind CSS",
+            "aliases": ["Tailwind"],
+            "keywords": ["tailwind", "tailwindcss"]
+        },
+        {
+            "name": "Bootstrap",
+            "aliases": [],
+            "keywords": ["bootstrap"]
+        },
+        {
+            "name": "Sass",
+            "aliases": ["SCSS"],
+            "keywords": ["sass", "scss"]
+        },
+        {
+            "name": "Redux",
+            "aliases": [],
+            "keywords": ["redux", "redux toolkit"]
+        },
+        {
+            "name": "Vite",
+            "aliases": [],
+            "keywords": ["vite"]
+        },
+        {
+            "name": "Webpack",
+            "aliases": [],
+            "keywords": ["webpack"]
+        },
+        {
+            "name": "jQuery",
+            "aliases": [],
+            "keywords": ["jquery"]
+        }
+    ],
+    "Backend": [
+        {
+            "name": "Node.js",
+            "aliases": ["NodeJS", "Node"],
+            "keywords": ["node.js", "nodejs", "node"]
+        },
+        {
+            "name": "Express",
+            "aliases": ["ExpressJS"],
+            "keywords": ["express", "express.js", "expressjs"]
+        },
+        {
+            "name": "Flask",
+            "aliases": [],
+            "keywords": ["flask"]
+        },
+        {
+            "name": "FastAPI",
+            "aliases": [],
+            "keywords": ["fastapi"]
+        },
+        {
+            "name": "Django",
+            "aliases": [],
+            "keywords": ["django", "django rest framework"]
+        },
+        {
+            "name": "Spring Boot",
+            "aliases": ["Spring"],
+            "keywords": ["spring boot", "spring framework"]
+        },
+        {
+            "name": "ASP.NET",
+            "aliases": ["ASP.NET Core"],
+            "keywords": ["asp.net", "asp.net core", "dotnet core"]
+        },
+        {
+            "name": "Ruby on Rails",
+            "aliases": ["Rails"],
+            "keywords": ["ruby on rails", "rails"]
+        },
+        {
+            "name": "NestJS",
+            "aliases": [],
+            "keywords": ["nestjs", "nest.js"]
+        },
+        {
+            "name": "REST API",
+            "aliases": ["RESTful API"],
+            "keywords": ["rest api", "restful", "rest"]
+        },
+        {
+            "name": "GraphQL",
+            "aliases": [],
+            "keywords": ["graphql"]
+        },
+        {
+            "name": "Microservices",
+            "aliases": [],
+            "keywords": ["microservices", "microservice architecture"]
+        },
+        {
+            "name": "WebSockets",
+            "aliases": [],
+            "keywords": ["websockets", "websocket", "socket.io"]
+        }
+    ],
+    "Databases": [
+        {
+            "name": "PostgreSQL",
+            "aliases": ["Postgres"],
+            "keywords": ["postgresql", "postgres"]
+        },
+        {
+            "name": "MySQL",
+            "aliases": [],
+            "keywords": ["mysql"]
+        },
+        {
+            "name": "MongoDB",
+            "aliases": [],
+            "keywords": ["mongodb", "mongo"]
+        },
+        {
+            "name": "Redis",
+            "aliases": [],
+            "keywords": ["redis"]
+        },
+        {
+            "name": "SQLite",
+            "aliases": [],
+            "keywords": ["sqlite"]
+        },
+        {
+            "name": "Microsoft SQL Server",
+            "aliases": ["MSSQL"],
+            "keywords": ["sql server", "mssql"]
+        },
+        {
+            "name": "Oracle Database",
+            "aliases": ["Oracle DB"],
+            "keywords": ["oracle database", "oracle db"]
+        },
+        {
+            "name": "Cassandra",
+            "aliases": [],
+            "keywords": ["cassandra", "apache cassandra"]
+        },
+        {
+            "name": "Elasticsearch",
+            "aliases": [],
+            "keywords": ["elasticsearch", "elastic search"]
+        },
+        {
+            "name": "DynamoDB",
+            "aliases": [],
+            "keywords": ["dynamodb"]
+        },
+        {
+            "name": "Firebase",
+            "aliases": [],
+            "keywords": ["firebase", "firestore"]
+        },
+        {
+            "name": "Supabase",
+            "aliases": [],
+            "keywords": ["supabase"]
+        }
+    ],
+    "Cloud Computing": [
+        {
+            "name": "AWS",
+            "aliases": ["Amazon Web Services"],
+            "keywords": ["aws", "amazon web services"]
+        },
+        {
+            "name": "Azure",
+            "aliases": ["Microsoft Azure"],
+            "keywords": ["azure", "microsoft azure"]
+        },
+        {
+            "name": "GCP",
+            "aliases": ["Google Cloud Platform", "Google Cloud"],
+            "keywords": ["gcp", "google cloud", "google cloud platform"]
+        },
+        {
+            "name": "AWS Lambda",
+            "aliases": ["Lambda"],
+            "keywords": ["aws lambda", "lambda functions"]
+        },
+        {
+            "name": "Amazon S3",
+            "aliases": ["S3"],
+            "keywords": ["s3", "amazon s3"]
+        },
+        {
+            "name": "Amazon EC2",
+            "aliases": ["EC2"],
+            "keywords": ["ec2", "amazon ec2"]
+        },
+        {
+            "name": "Vercel",
+            "aliases": [],
+            "keywords": ["vercel"]
+        },
+        {
+            "name": "Render",
+            "aliases": [],
+            "keywords": ["render.com", "render"]
+        },
+        {
+            "name": "Heroku",
+            "aliases": [],
+            "keywords": ["heroku"]
+        },
+        {
+            "name": "Cloudflare",
+            "aliases": [],
+            "keywords": ["cloudflare"]
+        },
+        {
+            "name": "Serverless Architecture",
+            "aliases": ["Serverless"],
+            "keywords": ["serverless", "serverless architecture"]
+        }
+    ],
+    "DevOps": [
+        {
+            "name": "Docker",
+            "aliases": [],
+            "keywords": ["docker", "containerization"]
+        },
+        {
+            "name": "Kubernetes",
+            "aliases": ["K8s"],
+            "keywords": ["kubernetes", "k8s"]
+        },
+        {
+            "name": "CI/CD",
+            "aliases": ["Continuous Integration", "Continuous Deployment"],
+            "keywords": ["ci/cd", "continuous integration", "continuous deployment", "continuous delivery"]
+        },
+        {
+            "name": "Jenkins",
+            "aliases": [],
+            "keywords": ["jenkins"]
+        },
+        {
+            "name": "GitHub Actions",
+            "aliases": [],
+            "keywords": ["github actions"]
+        },
+        {
+            "name": "Terraform",
+            "aliases": [],
+            "keywords": ["terraform", "infrastructure as code"]
+        },
+        {
+            "name": "Ansible",
+            "aliases": [],
+            "keywords": ["ansible"]
+        },
+        {
+            "name": "Nginx",
+            "aliases": [],
+            "keywords": ["nginx"]
+        },
+        {
+            "name": "Prometheus",
+            "aliases": [],
+            "keywords": ["prometheus"]
+        },
+        {
+            "name": "Grafana",
+            "aliases": [],
+            "keywords": ["grafana"]
+        }
+    ],
+    "Version Control": [
+        {
+            "name": "Git",
+            "aliases": [],
+            "keywords": ["git", "version control"]
+        },
+        {
+            "name": "GitHub",
+            "aliases": [],
+            "keywords": ["github"]
+        },
+        {
+            "name": "GitLab",
+            "aliases": [],
+            "keywords": ["gitlab"]
+        },
+        {
+            "name": "Bitbucket",
+            "aliases": [],
+            "keywords": ["bitbucket"]
+        },
+        {
+            "name": "Version Control Systems",
+            "aliases": ["VCS"],
+            "keywords": ["vcs", "source control"]
+        }
+    ],
+    "Artificial Intelligence": [
+        {
+            "name": "Artificial Intelligence",
+            "aliases": ["AI"],
+            "keywords": ["artificial intelligence", "ai"]
+        },
+        {
+            "name": "OpenAI API",
+            "aliases": ["GPT API"],
+            "keywords": ["openai api", "openai", "gpt api"]
+        },
+        {
+            "name": "Groq API",
+            "aliases": [],
+            "keywords": ["groq", "groq api"]
+        },
+        {
+            "name": "LangChain",
+            "aliases": [],
+            "keywords": ["langchain"]
+        },
+        {
+            "name": "Hugging Face",
+            "aliases": ["HuggingFace"],
+            "keywords": ["hugging face", "huggingface", "transformers library"]
+        },
+        {
+            "name": "Prompt Engineering",
+            "aliases": [],
+            "keywords": ["prompt engineering", "prompt design"]
+        },
+        {
+            "name": "Retrieval Augmented Generation",
+            "aliases": ["RAG"],
+            "keywords": ["rag", "retrieval augmented generation"]
+        },
+        {
+            "name": "Vector Databases",
+            "aliases": [],
+            "keywords": ["vector database", "pinecone", "chromadb", "weaviate", "faiss"]
+        },
+        {
+            "name": "Large Language Models",
+            "aliases": ["LLM", "LLMs"],
+            "keywords": ["llm", "large language model", "large language models"]
+        },
+        {
+            "name": "Computer Vision",
+            "aliases": ["OpenCV"],
+            "keywords": ["computer vision", "opencv"]
+        },
+        {
+            "name": "Natural Language Processing",
+            "aliases": ["NLP"],
+            "keywords": ["nlp", "natural language processing"]
+        }
+    ],
+    "Machine Learning": [
+        {
+            "name": "Machine Learning",
+            "aliases": ["ML"],
+            "keywords": ["machine learning", "ml"]
+        },
+        {
+            "name": "TensorFlow",
+            "aliases": [],
+            "keywords": ["tensorflow"]
+        },
+        {
+            "name": "PyTorch",
+            "aliases": ["Torch"],
+            "keywords": ["pytorch", "torch"]
+        },
+        {
+            "name": "Keras",
+            "aliases": [],
+            "keywords": ["keras"]
+        },
+        {
+            "name": "Scikit-learn",
+            "aliases": ["sklearn"],
+            "keywords": ["scikit-learn", "sklearn"]
+        },
+        {
+            "name": "Deep Learning",
+            "aliases": [],
+            "keywords": ["deep learning", "neural networks"]
+        },
+        {
+            "name": "XGBoost",
+            "aliases": [],
+            "keywords": ["xgboost"]
+        },
+        {
+            "name": "Model Deployment",
+            "aliases": [],
+            "keywords": ["model deployment", "mlops"]
+        },
+        {
+            "name": "Reinforcement Learning",
+            "aliases": [],
+            "keywords": ["reinforcement learning"]
+        }
+    ],
+    "Data Science": [
+        {
+            "name": "Data Science",
+            "aliases": [],
+            "keywords": ["data science"]
+        },
+        {
+            "name": "Pandas",
+            "aliases": [],
+            "keywords": ["pandas"]
+        },
+        {
+            "name": "NumPy",
+            "aliases": [],
+            "keywords": ["numpy"]
+        },
+        {
+            "name": "Matplotlib",
+            "aliases": [],
+            "keywords": ["matplotlib"]
+        },
+        {
+            "name": "Seaborn",
+            "aliases": [],
+            "keywords": ["seaborn"]
+        },
+        {
+            "name": "Data Visualization",
+            "aliases": [],
+            "keywords": ["data visualization", "tableau", "power bi"]
+        },
+        {
+            "name": "Data Analysis",
+            "aliases": [],
+            "keywords": ["data analysis", "data analytics"]
+        },
+        {
+            "name": "Statistics",
+            "aliases": [],
+            "keywords": ["statistics", "statistical analysis"]
+        },
+        {
+            "name": "ETL Pipelines",
+            "aliases": ["ETL"],
+            "keywords": ["etl", "etl pipeline", "data pipeline"]
+        },
+        {
+            "name": "Big Data",
+            "aliases": [],
+            "keywords": ["big data", "apache spark", "hadoop"]
+        }
+    ],
+    "Mobile Development": [
+        {
+            "name": "React Native",
+            "aliases": [],
+            "keywords": ["react native"]
+        },
+        {
+            "name": "Flutter",
+            "aliases": [],
+            "keywords": ["flutter"]
+        },
+        {
+            "name": "Android Development",
+            "aliases": ["Android"],
+            "keywords": ["android development", "android sdk"]
+        },
+        {
+            "name": "iOS Development",
+            "aliases": ["iOS"],
+            "keywords": ["ios development", "swiftui"]
+        },
+        {
+            "name": "Xamarin",
+            "aliases": [],
+            "keywords": ["xamarin"]
+        }
+    ],
+    "Testing": [
+        {
+            "name": "JUnit",
+            "aliases": [],
+            "keywords": ["junit"]
+        },
+        {
+            "name": "PyTest",
+            "aliases": ["pytest"],
+            "keywords": ["pytest", "py.test"]
+        },
+        {
+            "name": "Selenium",
+            "aliases": [],
+            "keywords": ["selenium"]
+        },
+        {
+            "name": "Jest",
+            "aliases": [],
+            "keywords": ["jest"]
+        },
+        {
+            "name": "Cypress",
+            "aliases": [],
+            "keywords": ["cypress"]
+        },
+        {
+            "name": "Unit Testing",
+            "aliases": [],
+            "keywords": ["unit testing", "unit tests"]
+        },
+        {
+            "name": "Test Automation",
+            "aliases": [],
+            "keywords": ["test automation", "automated testing"]
+        },
+        {
+            "name": "Postman",
+            "aliases": [],
+            "keywords": ["postman", "api testing"]
+        }
+    ],
+    "Operating Systems": [
+        {
+            "name": "Linux",
+            "aliases": [],
+            "keywords": ["linux", "ubuntu", "debian", "centos"]
+        },
+        {
+            "name": "Windows",
+            "aliases": [],
+            "keywords": ["windows", "windows server"]
+        },
+        {
+            "name": "macOS",
+            "aliases": [],
+            "keywords": ["macos", "mac os"]
+        },
+        {
+            "name": "Shell Scripting",
+            "aliases": ["Bash"],
+            "keywords": ["shell scripting", "bash", "bash scripting"]
+        }
+    ],
+    "Tools": [
+        {
+            "name": "Figma",
+            "aliases": [],
+            "keywords": ["figma"]
+        },
+        {
+            "name": "Postman",
+            "aliases": [],
+            "keywords": ["postman collections"]
+        },
+        {
+            "name": "Jira",
+            "aliases": [],
+            "keywords": ["jira"]
+        },
+        {
+            "name": "Confluence",
+            "aliases": [],
+            "keywords": ["confluence"]
+        },
+        {
+            "name": "Slack",
+            "aliases": [],
+            "keywords": ["slack"]
+        },
+        {
+            "name": "Trello",
+            "aliases": [],
+            "keywords": ["trello"]
+        },
+        {
+            "name": "VS Code",
+            "aliases": ["Visual Studio Code"],
+            "keywords": ["vs code", "visual studio code"]
+        },
+        {
+            "name": "IntelliJ IDEA",
+            "aliases": [],
+            "keywords": ["intellij", "intellij idea"]
+        },
+        {
+            "name": "Notion",
+            "aliases": [],
+            "keywords": ["notion"]
+        }
+    ],
+    "Soft Skills": [
+        {
+            "name": "Agile",
+            "aliases": ["Agile Methodology"],
+            "keywords": ["agile", "agile methodology", "scrum", "kanban"]
+        },
+        {
+            "name": "Communication",
+            "aliases": [],
+            "keywords": ["communication", "communication skills"]
+        },
+        {
+            "name": "Teamwork",
+            "aliases": [],
+            "keywords": ["teamwork", "collaboration"]
+        },
+        {
+            "name": "Problem Solving",
+            "aliases": [],
+            "keywords": ["problem solving", "problem-solving"]
+        },
+        {
+            "name": "Leadership",
+            "aliases": [],
+            "keywords": ["leadership", "team lead"]
+        },
+        {
+            "name": "Time Management",
+            "aliases": [],
+            "keywords": ["time management"]
+        },
+        {
+            "name": "Critical Thinking",
+            "aliases": [],
+            "keywords": ["critical thinking"]
+        },
+        {
+            "name": "Adaptability",
+            "aliases": [],
+            "keywords": ["adaptability", "flexibility"]
+        },
+        {
+            "name": "Project Management",
+            "aliases": [],
+            "keywords": ["project management"]
+        },
+        {
+            "name": "Mentoring",
+            "aliases": [],
+            "keywords": ["mentoring", "mentorship"]
+        }
+    ]
+}
