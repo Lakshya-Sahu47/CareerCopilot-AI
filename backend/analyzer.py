@@ -11,10 +11,21 @@ using a skill knowledge base (skills.json) to determine:
 
 Expected shape of skills.json
 ------------------------------
-This module expects skills.json to contain a list of skill entries,
-each describing a canonical skill name along with alternate spellings
-("aliases") and/or related keyword phrases ("keywords") that should
-also be recognized as referring to that skill. For example::
+This module accepts three possible shapes for skills.json:
+
+1. A flat top-level list of skill entries::
+
+    [
+        {
+            "name": "Python",
+            "aliases": ["py"],
+            "keywords": ["python programming", "python3"]
+        },
+        ...
+    ]
+
+2. A top-level object with a "skills" key mapping to a list of skill
+   entries::
 
     {
         "skills": [
@@ -23,17 +34,43 @@ also be recognized as referring to that skill. For example::
                 "aliases": ["py"],
                 "keywords": ["python programming", "python3"]
             },
-            {
-                "name": "Machine Learning",
-                "aliases": ["ml"],
-                "keywords": ["machine learning models"]
-            }
+            ...
         ]
     }
 
-Only "name", "aliases", and "keywords" are used by this module. All
-matching against resume/job description text is case insensitive and
-punctuation insensitive.
+3. A top-level object where each key is a category name (e.g.
+   "Programming Languages", "Frontend", "Backend") mapping to a list
+   of skill entries::
+
+    {
+        "Programming Languages": [
+            {
+                "name": "Python",
+                "aliases": ["py"],
+                "keywords": ["python", "python3"]
+            },
+            ...
+        ],
+        "Frontend": [
+            {
+                "name": "React",
+                "aliases": ["ReactJS"],
+                "keywords": ["react", "reactjs", "react.js"]
+            },
+            ...
+        ]
+    }
+
+In the categorized format (3), all categories are flattened into a
+single list of skill entries. The category name itself is not used
+for matching -- only "name", "aliases", and "keywords" are used by
+this module. All matching against resume/job description text is
+case insensitive and punctuation insensitive.
+
+If a skill name appears in more than one category (e.g. "Postman"
+under both "Testing" and "Tools"), it is automatically deduplicated
+by `extract_skills()`, since detected skills are collected into a set
+keyed by canonical name.
 """
 
 import json
@@ -52,10 +89,14 @@ def load_skill_database(skills_path: str = _DEFAULT_SKILLS_PATH) -> List[SkillEn
     """
     Load the skill knowledge base from a JSON file.
 
-    The JSON file is expected to contain either:
-        - A top-level list of skill entries, or
+    The JSON file is expected to contain one of the following:
+        - A top-level list of skill entries,
         - A top-level object with a "skills" key mapping to a list
-          of skill entries.
+          of skill entries, or
+        - A top-level object where each key is a category name
+          mapping to a list of skill entries (categorized format).
+          In this case, all categories are flattened into a single
+          list of skill entries.
 
     Each skill entry is expected to be a dictionary with at least a
     "name" key, and optionally "aliases" and "keywords" keys (each a
@@ -66,12 +107,12 @@ def load_skill_database(skills_path: str = _DEFAULT_SKILLS_PATH) -> List[SkillEn
             skills.json file located alongside this module.
 
     Returns:
-        A list of skill entry dictionaries.
+        A flat list of skill entry dictionaries.
 
     Raises:
         FileNotFoundError: If no file exists at `skills_path`.
-        ValueError: If the file is not valid JSON, or does not match
-            the expected structure.
+        ValueError: If the file is not valid JSON, does not match one
+            of the supported structures, or contains no skill entries.
     """
     if not os.path.isfile(skills_path):
         raise FileNotFoundError(f"Skill database not found at path: {skills_path}")
@@ -82,15 +123,11 @@ def load_skill_database(skills_path: str = _DEFAULT_SKILLS_PATH) -> List[SkillEn
     except json.JSONDecodeError as exc:
         raise ValueError(f"Skill database at '{skills_path}' is not valid JSON: {exc}") from exc
 
-    if isinstance(data, dict):
-        skills = data.get("skills")
-    else:
-        skills = data
+    skills = _normalize_skill_database_shape(data)
 
-    if not isinstance(skills, list):
+    if not skills:
         raise ValueError(
-            "Skill database must be a list of skill entries, or an object "
-            "containing a 'skills' key mapping to a list of skill entries."
+            f"No skill entries were found in skill database at '{skills_path}'."
         )
 
     for entry in skills:
@@ -101,6 +138,54 @@ def load_skill_database(skills_path: str = _DEFAULT_SKILLS_PATH) -> List[SkillEn
             )
 
     return skills
+
+
+def _normalize_skill_database_shape(data: Union[list, dict]) -> List[SkillEntry]:
+    """
+    Normalize any supported skills.json shape into a flat list of
+    skill entries.
+
+    Supports:
+        - A flat top-level list of skill entries.
+        - A top-level object with a "skills" key mapping to a list.
+        - A top-level object keyed by category, where each value is a
+          list of skill entries (categorized format). All categories
+          are flattened into a single list.
+
+    Args:
+        data: The raw JSON-decoded contents of skills.json.
+
+    Returns:
+        A flat list of skill entry dictionaries. May be empty if no
+        recognizable skill entries were found.
+
+    Raises:
+        ValueError: If `data` is neither a list nor a dictionary.
+    """
+    if isinstance(data, list):
+        return data
+
+    if not isinstance(data, dict):
+        raise ValueError(
+            "Skill database must be a list of skill entries, or an object "
+            "containing either a 'skills' key or category keys, each "
+            "mapping to a list of skill entries."
+        )
+
+    # Supported format: {"skills": [...]}
+    if isinstance(data.get("skills"), list):
+        return data["skills"]
+
+    # Categorized format: {"Category A": [...], "Category B": [...], ...}
+    flattened: List[SkillEntry] = []
+    for _category_name, entries in data.items():
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            if isinstance(entry, dict):
+                flattened.append(entry)
+
+    return flattened
 
 
 def _normalize_text(text: str) -> str:
@@ -152,6 +237,11 @@ def extract_skills(text: str, skill_database: List[SkillEntry] = None) -> List[s
     Matching is case insensitive and punctuation insensitive. A skill is
     considered "detected" if its canonical name, any of its aliases, or
     any of its keywords appears as a substring of the normalized text.
+
+    If the same canonical skill name appears in multiple categories of
+    a categorized skills.json (e.g. "Postman" under both "Testing" and
+    "Tools"), it is only counted once, since detected skills are
+    collected into a set keyed by canonical name.
 
     Args:
         text: The text to scan for skills (e.g., resume text or job
@@ -266,3 +356,4 @@ def compare_resume_with_job(
         "resume_skill_count": len(resume_skills),
         "job_skill_count": len(job_skills),
     }
+    

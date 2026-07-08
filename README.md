@@ -25,6 +25,85 @@ CareerCopilot AI was built to solve this problem with a focused, no-friction exp
 
 ---
 
+## 🚀 Development Progress
+
+### Project Status
+
+**Current Version:** v1 (In Development)
+**Overall Progress:** ~75%
+
+The project has progressed from an initial idea into a working full-stack MVP with frontend-backend communication established. The current focus is on completing backend analysis and polishing the application before deployment.
+
+### Roadmap
+
+- [x] Project initialization (Git, GitHub, folder structure, `.gitignore`, `.env.example`)
+- [x] Flask backend setup (modular architecture, CORS, environment variables)
+- [x] Resume parsing pipeline (PDF upload, text extraction and cleaning)
+- [x] ATS analysis engine (keyword extraction, skill matching, score generation)
+- [x] AI integration via Groq API (strengths, weaknesses, suggestions, roadmap, interview questions)
+- [x] React + Vite frontend setup (Tailwind CSS, Axios, project structure)
+- [x] Landing page (hero, upload, job description input, analyze button, feature cards)
+- [x] Results dashboard (score, skills, strengths/weaknesses, suggestions, roadmap, interview questions)
+- [x] Frontend API layer (Axios integration, multipart upload, timeout/error handling)
+- [x] Frontend ↔ backend integration (full request/response cycle working end-to-end)
+- [x] Frontend error handling (network errors, invalid uploads, loading states)
+- [ ] Fix `skills.json` format mismatch with `analyzer.py` *(current blocker)*
+- [ ] Validate ATS scoring consistency
+- [ ] Improve skill extraction accuracy
+- [ ] Add comprehensive backend error logging
+- [ ] Polish UI responsiveness across breakpoints
+- [ ] Add drag-and-drop resume upload
+- [ ] Improve loading animations
+- [ ] Test across multiple resume formats and job descriptions
+- [ ] Deploy Flask backend to Render
+- [ ] Deploy React frontend to Vercel
+- [ ] Configure production environment variables
+
+### ⚠️ Current Known Issue
+
+The frontend is functioning correctly and successfully communicates with the backend. The current blocker is in the backend ATS analysis: the `skills.json` format does not match the format expected by `analyzer.py`, which causes ATS analysis to fail before AI-generated insights can be displayed. This is the primary issue to resolve before deployment.
+
+### Current Application Flow
+
+```
+User opens website
+        │
+        ▼
+Uploads Resume (PDF)
+        │
+        ▼
+Pastes Job Description
+        │
+        ▼
+Clicks Analyze Resume
+        │
+        ▼
+Frontend Validation
+        │
+        ▼
+POST /analyze
+        │
+        ▼
+Flask Backend
+        │
+        ▼
+Resume Parser
+        │
+        ▼
+ATS Analyzer
+        │
+        ▼
+AI Analysis
+        │
+        ▼
+JSON Response
+        │
+        ▼
+Results Dashboard
+```
+
+---
+
 ## Features
 
 Version 1 of CareerCopilot AI includes:
@@ -180,6 +259,145 @@ CareerCopilot-AI/
 
 ---
 
+## Running the Application Locally
+
+CareerCopilot AI has two parts that run separately: the Flask **backend** and the React/Vite **frontend**. Both need to be running at the same time.
+
+### Terminal 1 — Run the Backend
+
+Open a terminal and go to the backend folder:
+
+```bash
+cd D:\A\projects\CareerCopilot-AI\backend
+```
+
+Activate the virtual environment (if you created one):
+
+**Windows**
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies (only the first time, or after `requirements.txt` changes):
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Flask server:
+
+```bash
+python app.py
+```
+
+You should see something like:
+
+```text
+Running on http://127.0.0.1:5000
+```
+
+Keep this terminal open.
+
+### Terminal 2 — Run the Frontend
+
+Open another terminal and go to the frontend folder:
+
+```bash
+cd D:\A\projects\CareerCopilot-AI\frontend
+```
+
+Install packages (only the first time, or after `package.json` changes):
+
+```bash
+npm install
+```
+
+Run Vite:
+
+```bash
+npm run dev
+```
+
+You should see:
+
+```text
+Local: http://localhost:5173/
+```
+
+Open the app in your browser:
+
+```
+http://localhost:5173
+```
+
+### Verify the Backend
+
+Open your browser and go to:
+
+```
+http://127.0.0.1:5000
+```
+
+You should get a JSON response such as:
+
+```json
+{
+  "application": "CareerCopilot AI",
+  "status": "running"
+}
+```
+
+### If the Frontend Doesn't Work
+
+Check whether the React app is calling the correct backend URL. In:
+
+```
+frontend/src/services/api.js
+```
+
+you should be pointing to:
+
+```javascript
+const API_URL = "http://127.0.0.1:5000";
+```
+
+or
+
+```javascript
+const API_URL = "http://localhost:5000";
+```
+
+### Common Commands
+
+**Backend**
+```bash
+cd backend
+venv\Scripts\activate
+python app.py
+```
+
+**Frontend**
+```bash
+cd frontend
+npm run dev
+```
+
+### If You Get an Error After Clicking "Analyze Resume"
+
+Gather the following two pieces of information:
+
+1. The error shown in the browser (or browser console).
+2. The error printed in the Flask terminal.
+
+With those two, it's possible to pinpoint whether the issue is in:
+
+- React → Flask communication,
+- PDF upload handling,
+- the Groq API,
+- or the ATS analysis logic.
+
+---
+
 ## Future Improvements
 
 Planned enhancements for future versions include:
@@ -189,6 +407,13 @@ Planned enhancements for future versions include:
 - ✉️ **Cover Letter Generator** — AI-generated, job-specific cover letters
 - 🐙 **GitHub Profile Analysis** — Insights based on public GitHub activity
 - 💼 **LinkedIn Profile Review** — AI-powered feedback on LinkedIn profiles
+- 🔁 **Resume Rewrite Generator**
+- 🧭 **Job Role Recommendation**
+- 🆚 **Resume Version Comparison**
+- 🎙️ **AI Mock Interview**
+- 🔐 **User Authentication**
+- 📜 **Resume History**
+- 📤 **Export Analysis as PDF**
 
 ---
 
